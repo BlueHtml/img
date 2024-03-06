@@ -16,7 +16,7 @@ jobs:
 
     steps:
     - name: repo-sync
-      uses: yehan-coding/yehan-git-sync@v1
+      uses: yehan68/yehan-repo-sync@v2
       with:
         source_repo_url: git@github.com:${{ github.repository }}.git
         source_branch: main
