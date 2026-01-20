@@ -15,15 +15,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: repo-sync
-      uses: BlueHtml/repo-sync@main
-      with:
-        source_repo_url: git@github.com:${{ github.repository }}.git
-        source_branch: main
-        destination_repo_url: ${{ secrets.DESTINATION_REPO_URL }}
-        destination_branch: main
-        ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-
     - name: Deploy to EdgeOne Pages
       uses: TencentEdgeOne/edgeone-pages-action@v1
       with:
