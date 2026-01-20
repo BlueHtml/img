@@ -23,3 +23,10 @@ jobs:
         destination_repo_url: ${{ secrets.DESTINATION_REPO_URL }}
         destination_branch: main
         ssh_private_key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Deploy to EdgeOne Pages
+      uses: TencentEdgeOne/edgeone-pages-action@v1
+      with:
+        token: ${{ secrets.EDGEONE_API_TOKEN }}
+        project-name: "gh-img"
+        build-path: "./"
