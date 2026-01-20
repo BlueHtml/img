@@ -20,4 +20,4 @@ jobs:
       with:
         token: ${{ secrets.EDGEONE_API_TOKEN }}
         project-name: "gh-img"
-        build-path: "./"
+        build-path: "./note"
