@@ -16,10 +16,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v5
-
-    - name: Deploy to EdgeOne Pages
-      uses: TencentEdgeOne/edgeone-pages-action@v1
       with:
-        token: ${{ secrets.EDGEONE_API_TOKEN }}
-        project-name: "gh-img"
-        build-path: "."
+        fetch-depth: 0
+    
+    - name: Sync to CNB Repository
+      uses: docker://tencentcom/git-sync
+      env:
+        PLUGIN_TARGET_URL: ${{ secrets.PLUGIN_TARGET_URL }}
+        PLUGIN_AUTH_TYPE: ${{ secrets.PLUGIN_AUTH_TYPE }}
+        PLUGIN_USERNAME: ${{ secrets.PLUGIN_USERNAME }}
+        PLUGIN_PASSWORD: ${{ secrets.PLUGIN_PASSWORD }}
+        PLUGIN_FORCE: "true"
